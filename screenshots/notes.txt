@@ -1,0 +1,21 @@
+🖥 Windows:
+Open Notepad as Administrator.
+
+Open: C:\Windows\System32\drivers\etc\hosts
+
+Add this line:
+
+192.168.1.4    odoo.local
+
+-------------
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout odoo.key -out odoo.crt -config openssl.cnf
+---------------
+https://github.com/ouerghi01/RandTalkX-/blob/main/nginx.conf
+-------------
+https://github.com/odoomates/odoosamples/blob/main/odoo_nginx_conf
+
+
+-----
+Win + R
+shell:startup
+Move start-odoo.bat into that folder
