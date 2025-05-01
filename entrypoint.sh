@@ -7,10 +7,10 @@ set -e
 : ${HOST:=${DB_PORT_5432_TCP_ADDR:='db'}}
 : ${PORT:=${DB_PORT_5432_TCP_PORT:=5432}}
 : ${USER:=${DB_ENV_POSTGRES_USER:=${POSTGRES_USER:='odoo'}}}
-: ${PASSWORD:=${DB_ENV_POSTGRES_PASSWORD:=${POSTGRES_PASSWORD:='odoo17@2023'}}}
+: ${PASSWORD:=${DB_ENV_POSTGRES_PASSWORD:=${POSTGRES_PASSWORD:='odoo18@2024'}}}
 
 # install python packages
-pip3 install pip --upgrade
+# pip3 install pip --upgrade                # may cause errors
 pip3 install -r /etc/odoo/requirements.txt
 
 # sed -i 's|raise werkzeug.exceptions.BadRequest(msg)|self.jsonrequest = {}|g' /usr/lib/python3/dist-packages/odoo/http.py

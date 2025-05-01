@@ -1,36 +1,39 @@
 version: '2'
 services:
-  db:
-    image: postgres:16
+  db1:
+    image: postgres:17
     user: root
     environment:
       - POSTGRES_USER=odoo
-      - POSTGRES_PASSWORD=odoo17@2023
+      - POSTGRES_PASSWORD=odoo18@2024
       - POSTGRES_DB=postgres
-    restart: always
+    restart: always             # run as a service
     volumes:
-      - ./postgresql:/var/lib/postgresql/data
+        - ./postgresql:/var/lib/postgresql/data
+
 
   odoo:
-    image: odoo:17
+    image: odoo:18
     user: root
     depends_on:
-      - db
+      - db1
     ports:
       - "10017:8069"
-      - "20017:8072"
+      - "20017:8072" # live chat
     tty: true
     command: --
     environment:
-      - HOST=db
+      - HOST=db1
       - USER=odoo
-      - PASSWORD=odoo17@2023
-      - WEB_BASE_URL=http://192.168.1.4
+      - PASSWORD=odoo18@2024
+      - PIP_BREAK_SYSTEM_PACKAGES=1
     volumes:
+      #- /etc/timezone:/etc/timezone:ro
+      #- /etc/localtime:/etc/localtime:ro
       - ./entrypoint.sh:/entrypoint.sh
       - ./addons:/mnt/extra-addons
       - ./etc:/etc/odoo
-    restart: always
+    restart: always          
   
   generate-cert:
     image: alpine
