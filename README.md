@@ -1,30 +1,10 @@
-# Installing Odoo 17.0 with one command (Supports multiple Odoo instances on one server).
+# Installing Odoo 18.0 with one command (Supports multiple Odoo instances on one server).
 
 ## Quick Installation
 
 Install [docker](https://docs.docker.com/get-docker/) and [docker-compose](https://docs.docker.com/compose/install/) yourself, then run the following to set up first Odoo instance @ `localhost:10017` (default master password: `minhng.info`):
 
-``` bash
-curl -s https://raw.githubusercontent.com/minhng92/odoo-17-docker-compose/master/run.sh | bash -s odoo-one 10017 20017
-```
-and/or run the following to set up another Odoo instance @ `localhost:11017` (default master password: `minhng.info`):
 
-``` bash
-curl -s https://raw.githubusercontent.com/minhng92/odoo-17-docker-compose/master/run.sh | bash -s odoo-two 11017 21017
-```
-
-Some arguments:
-* First argument (**odoo-one**): Odoo deploy folder
-* Second argument (**10017**): Odoo port
-* Third argument (**20017**): live chat port
-
-If `curl` is not found, install it:
-
-``` bash
-$ sudo apt-get install curl
-# or
-$ sudo yum install curl
-```
 
 ## Usage
 
@@ -32,7 +12,7 @@ Start the container:
 ``` sh
 docker-compose up
 ```
-Then open `localhost:10017` to access Odoo 17.
+Then open `localhost:10017` to access Odoo 18.
 
 - **If you get any permission issues**, change the folder permission to make sure that the container is able to access the directory:
 
@@ -121,8 +101,8 @@ server {
 
 ## docker-compose.yml
 
-* odoo:17
-* postgres:16
+* odoo:18
+* postgres:17
 
 ## Odoo 17.0 screenshots after successful installation.
 
